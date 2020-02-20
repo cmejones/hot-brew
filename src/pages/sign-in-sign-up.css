@@ -1,5 +1,7 @@
 .sign-in-sign-up {
     font-family: Arial, Helvetica, sans-serif;
-    width: 30vw;
-    margin-left: 5rem;
+    width: 850px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
 }
