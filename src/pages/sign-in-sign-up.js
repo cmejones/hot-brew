@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SignIn from '../components/sign-in/sign-in.component';
-import SignUp from '../components/sign-up/sign-up.component';
+import SignIn from '../Components/sign-in/sign-in.component';
+import SignUp from '../Components/sign-up/sign-up.component';
 
 
 import './sign-in-sign-up.css';
 
 const SignInAndSignUpPage = () => (
-    <div className='sign-in-sign-up'>
+    <div className='flex-container wrap'>
         <SignIn />
         <SignUp />
     </div>
