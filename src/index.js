@@ -9,17 +9,36 @@ import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import { reactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import firebase from '../src/firebase/firebase.utils';
 
-const store = createStore(rootReducer, 
-    compose(
-        applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-        reduxFirestore(firebase),
-        reactReduxFirebase(firebase)
-    )
+const store = createStore(rootReducer,
+
+        applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore }))
+    
 );
 
-ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
+// react-redux-firebase config
+const rrfConfig = {
+    userProfile: 'users',
+  // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
+}
+
+//update to new react redux firebase version
+const rrfProps = {
+    firebase,
+    config: rrfConfig,
+    dispatch: store.dispatch
+}
+
+// const App = () => (
+//     <Provider store={store}>
+//         <ReactReduxFirebaseProvider {...rrfProps}>
+
+//         </ReactReduxFirebaseProvider>
+//     </Provider>
+// )
+
+ReactDOM.render(<Provider store={store}><reactReduxFirebaseProvider {...rrfProps}></reactReduxFirebaseProvider><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
 
 serviceWorker.unregister();
