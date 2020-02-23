@@ -1,14 +1,14 @@
 import React from 'react';
 
-const ProductSummary = () => {
+const ProductSummary = ({ product }) => {
     return (
         <div className="card z-depth-0 product-summary">
             <div className="card-content grey-text text-darken-3">
                 <span className="card-title">
-                    Product Name
+                    {product.title}
                 </span>
-                <p>product image</p>
-                <p>Product description</p>
+                <p>{product.image}</p>
+                <p>{product.description}</p>
             </div>
         </div>
     )

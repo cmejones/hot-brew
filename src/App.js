@@ -7,6 +7,9 @@ import SignInAndSignUpPage from './pages/sign-in-sign-up';
 import Users from './pages/Users';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import ProductList from './components/products/ProductList';
+import ProductDetail from './components/products/ProductDetail';
+import CreateProduct from './components/products/CreateProduct';
+import Dashboard from './components/dashboad/Dashboard';
 
 class App extends React.Component {
   constructor() {
@@ -55,7 +58,10 @@ class App extends React.Component {
         <Switch>
           <Route path='/signin' component={SignInAndSignUpPage}  />
           <Route path='/users' component={Users}  />
-          <Route path='/products' component={ProductList}  />
+          <Route exact path='/' component={Dashboard} />
+          <Route exact path='/products' component={ProductList}  />
+          <Route path='/products/:id' component={ProductDetail} />
+          <Route path='/create-product' component={CreateProduct} />
         </Switch>
       
     </div>

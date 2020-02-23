@@ -1,13 +1,14 @@
 import React from 'react';
 import ProductSummary from './ProductSummary';
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
     return (
         <div className="product-list section">
-            {/* need to create a function to iterate through products */}
-            <ProductSummary />
-            <ProductSummary />
-            <ProductSummary />
+            { products && products.map(product => {
+                return (
+                    <ProductSummary product={product} key={product.id} />
+                )
+            })}
 
         </div>
 

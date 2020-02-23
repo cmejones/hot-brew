@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+import AdminLinks from './AdminLinks';
 import { auth } from '../../../firebase/firebase.utils'
 
 import { ReactComponent as Logo} from '../../../assets/coffee-cup.svg';
@@ -16,11 +17,12 @@ const Header = ({ currentUser }) => (
             <Logo className='logo' />
         </Link>
         <div className='options'>
-            <Link className='option' to='/shop'>
+            <Link className='option' to='/products'>Shop
                 
             </Link>
             <SignedInLinks />
             <SignedOutLinks />
+            <AdminLinks />
 
             {
                 currentUser ? 
