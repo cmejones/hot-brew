@@ -1,6 +1,6 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 //import '../Job.css';
-import axios from './node_modules/axios';
+import axios from 'axios';
 
 
 class User extends Component {
