@@ -2,10 +2,11 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
-import Header from './Components/header/header.component';
-import SignInAndSignUpPage from './Pages/sign-in-sign-up';
-import Users from './Pages/Users';
+import Header from './components/layout/header/header.component';
+import SignInAndSignUpPage from './pages/sign-in-sign-up';
+import Users from './pages/Users';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import ProductList from './components/products/ProductList';
 
 class App extends React.Component {
   constructor() {
@@ -54,6 +55,7 @@ class App extends React.Component {
         <Switch>
           <Route path='/signin' component={SignInAndSignUpPage}  />
           <Route path='/users' component={Users}  />
+          <Route path='/products' component={ProductList}  />
         </Switch>
       
     </div>

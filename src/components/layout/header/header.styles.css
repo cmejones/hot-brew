@@ -13,6 +13,7 @@ a:link {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  background-color: gray;
 }
 
 .logo-container {
