@@ -13,10 +13,15 @@ class CreateProduct extends React.Component {
         super(props);
 
         this.state = {
-            title: '',
-            description: '',
-            price: '', 
-            image: ''
+            name: '',
+            type: '',
+            imageURL: '',
+            flavor_profile: '',
+            category: '',
+            size: '',
+            price: '',
+            description: ''
+
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +37,7 @@ class CreateProduct extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
        // console.log('state', this.state);
-       this.props.createProduct(this.state);
+        this.props.createProduct(this.state);
 
     };
 
@@ -43,24 +48,60 @@ class CreateProduct extends React.Component {
             <div className='container'>
                 <h2 className='title'>Add a new Product</h2>
                 <form className='create-product-form' onSubmit={this.handleSubmit} >
-                     <FormInput
+                    <FormInput
                         type='text'
-                        name='title'
-                        value={this.state.title}
+                        name='name'
+                        value={this.state.name}
                         onChange={this.handleChange}
                         label='Product Name'
                         required
                     />
-                   
+                
                     <FormInput
                         type='text'
-                        name='description'
-                        value={this.state.description}
+                        name='type'
+                        value={this.state.type}
                         onChange={this.handleChange}
-                        label='Product Description'
+                        label='Type'
                         required
                     />
                 
+                    <FormInput
+                        type='text'
+                        name='imageURL'
+                        value={this.state.imageURL}
+                        onChange={this.handleChange}
+                        label='Image'
+                        required
+                    />
+
+                    <FormInput
+                        type='text'
+                        name='flavor_profile'
+                        value={this.state.flavor_profile}
+                        onChange={this.handleChange}
+                        label='Flavor Profile'
+                        required
+                    />
+
+                    <FormInput
+                        type='text'
+                        name='category'
+                        value={this.state.category}
+                        onChange={this.handleChange}
+                        label='Product Category'
+                        required
+                    />
+
+                    <FormInput
+                        type='text'
+                        name='size'
+                        value={this.state.size}
+                        onChange={this.handleChange}
+                        label='Size'
+                        required
+                    />
+
                     <FormInput
                         type='text'
                         name='price'
@@ -72,10 +113,10 @@ class CreateProduct extends React.Component {
 
                     <FormInput
                         type='text'
-                        name='image'
-                        value={this.state.image}
+                        name='description'
+                        value={this.state.description}
                         onChange={this.handleChange}
-                        label='Product Image'
+                        label='Description'
                         required
                     />
 

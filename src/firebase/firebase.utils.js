@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth' 
- 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDI53lx0xAPoCOsRSjO2Q_CRGk2Jm0kXiM",
   authDomain: "api-hot-brew.firebaseapp.com",
@@ -42,14 +42,22 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 };
 
+//export const myFirebase = firebase.initializeApp(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
-  
+
 export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+//connect to products database
+// const databaseRef = firebase.database().ref();
+// export const productsRef = databaseRef.child('products');
+
+
+export const db = firestore;
 
 export default firebase;
