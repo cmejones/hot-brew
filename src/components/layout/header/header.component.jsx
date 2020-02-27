@@ -13,7 +13,7 @@ import './header.styles.css';
 const Header = ({ currentUser }) => (
     <nav>
     <div className='header nav-wrapper'>
-        <Link className='logo-container' to='/'>
+        <Link to='/'>
             <Logo className='logo' />
         </Link>
         <div className=''>

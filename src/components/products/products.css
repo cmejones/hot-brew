@@ -1,0 +1,55 @@
+.filter {
+    height:60px;
+    width:100%;
+    position: sticky;
+    z-index: 400;
+    background-color: aliceblue;
+    top:0;
+}
+.pos-rel {
+    position: relative;
+}
+
+.pos-abs {
+    position: absolute;
+}
+.type-container {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    top: -20px;
+    width:100%;
+}
+
+.type-detail {
+    padding:5px 10px;
+    display: inline-block;
+    background-color: #fff;
+}
+.card-image {
+    vertical-align: top;
+    display:inline-block;
+}
+
+.card .card-title {
+    font-size: 18px;
+    font-weight:500;
+}
+
+.card .card-content .card-title  {
+    line-height:24px;
+}
+
+a {
+    color:#333;
+}
+
+a:hover {
+    color:#01a1dd;
+}
+
+.col {
+    max-width:420px;
+}
