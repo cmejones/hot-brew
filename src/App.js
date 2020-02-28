@@ -10,6 +10,7 @@ import ProductList from './components/products/ProductList';
 import ProductDetail from './components/products/ProductDetail';
 import CreateProduct from './components/products/CreateProduct';
 import Dashboard from './components/dashboard/Dashboard';
+import Products from './components/dashboard/Products';
 
 class App extends React.Component {
   constructor() {
@@ -58,8 +59,9 @@ class App extends React.Component {
         <Switch>
           <Route path='/signin' component={SignInAndSignUpPage}  />
           <Route path='/users' component={Users}  />
+          <Route path='/users/:id' component={Users}  />
           <Route exact path='/' component={Dashboard} />
-          <Route exact path='/products' component={ProductList}  />
+          <Route exact path='/products' component={Products}  />
           <Route path='/products/:id' component={ProductDetail} />
           <Route path='/create-product' component={CreateProduct} />
         </Switch>

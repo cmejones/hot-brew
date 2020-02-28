@@ -1,75 +1,53 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../products/products.css';
-import ProductDetail from '../products/ProductDetail';
+import ProductList from '../products/ProductList';
 
 
 class Products extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            products: []
+            products: [],
+            isLoading: true
         }
     }
-
-
-    componentDidMount() {
-        console.log('here');
-        //const productId = this.props.match.params.id;
-        axios.get('http://localhost:3001/api/products/')
-        .then( (response) => {
-            this.successShow(response);
+        componentDidMount() {
+            console.log('test');
+            axios.get('/api/products/')      
+            .then(response => {
+                console.log('products', response.data);
+                this.setState({
+                    isLoading: false, 
+                    products: response.data
+                });
             })
-        .catch(error => {
-            this.successShow(error);
-
-        });
-    }
-
-    successShow(response) {
-        this.setState({
-            products: response.data
-        
-        });
-            console.log(response.data);
-    }
+        }
 
     render() {
+        
+        const { isLoading, products } = this.state;
 
         return (
+            this.state.isLoading ? <div>I am loading</div> :
+            <div className="dashboard">
+                <div className="filter"></div>
 
-            <div className="row">
-            {this.state.products.map(product => (
-                <div className="col s12 m6 l4">
-                    <a href="/"><div className="card medium">
-
-                        <div className="card-image">
-                            <img className="product-image pos-rel responsive-img" src={`${product.imageUrl}`} />
-                        </div>
-
-                        <div className="pos-rel center-align">
-                            <div className="type-container pos-abs">
-                                <p className="z-depth-1 type-detail">{product.type}</p>
-                            </div>
-                        </div>
-                        
-                        <div className="card-content">
-                            <div className="card-title">
-                                {product.name}
-                            </div>
-                            
-                            <div className="" key={product.id}>
-                                <p><em>flavor profile goes here</em></p>
-                                <p>{product.size} | ${product.price}</p>
-                            </div>
-                        </div>
-                        
-                
-                    </div></a>
+                <div className="container">
+                    <div className="row">
+                        {products.map(product => (
+                            <ProductList
+                                name={product.name} 
+                                type={product.type} 
+                                category={product.category} 
+                                imageUrl={product.imageUrl} 
+                                description={product.description} 
+                                size={product.size}
+                                price={product.price} />
+                        ))}
+                    </div>
                 </div>
-            ))}
             </div>
-            
 
         );
     }

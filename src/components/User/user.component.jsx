@@ -42,7 +42,7 @@ class User extends Component {
             })
         .catch(error => {
             this.successShow(error);
-
+console.log('hey');
         });
     }
 
@@ -50,6 +50,7 @@ class User extends Component {
         this.setState({
             users: response.data
         });
+       // console.log(response.data);
     }
 
     render() {
@@ -58,17 +59,13 @@ class User extends Component {
             <ul>
             {this.state.users.map(user => (
                 <li key={user.id}>
-                    Display Name: {user.displayName}
+                    {user.displayName}
+                    {/* <a href={`/users/${user.id}`}>{user.displayName}</a> */}
 
                 </li>
             ))}
             
             </ul>
-            // <div className="User">
-            //     <h1>{this.state.email}</h1>
-            //     <div>show all users</div>
-
-            // </div>
         );
     }
 }
