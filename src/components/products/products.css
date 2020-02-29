@@ -54,3 +54,21 @@ a:hover {
 .col {
     max-width:420px;
 }
+
+.product-image {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.col {
+    max-width:100%;
+}
+
+.description {
+    padding-right:5em;
+    padding-left:5em;
+}
+.reviews {
+    margin-top: 20px;
+    border-top:1px solid gray;
+}

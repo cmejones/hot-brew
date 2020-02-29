@@ -36,9 +36,7 @@ class Users extends Component {
                 <h1 className="App-title">All Hot Brew Customers</h1>
             </header>
             <div className="Users">
-                {/* {jobsJSX} */}
                 <Switch>
-                    {/* <Route exact path='/users' render={ () => usersJSX } /> */}
                     <Route exact path='/users' component={() => <User usersJSX={this.state.users} />}/>
 
                     <Route path='/users/:id' component={() => <UserProfile userProfiles={this.state.users} />}/>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import axios from 'axios';
 
 //import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
@@ -16,7 +17,7 @@ class CreateProduct extends React.Component {
             name: '',
             type: '',
             imageURL: '',
-            flavor_profile: '',
+            flavorProfile: '',
             category: '',
             size: '',
             price: '',
@@ -38,6 +39,12 @@ class CreateProduct extends React.Component {
         event.preventDefault();
        // console.log('state', this.state);
         this.props.createProduct(this.state);
+        axios.post('/api/products/new', (req, res, next) => {
+            //soemthing
+        })
+        .then((event) => {
+            console.log('event',event)
+        })
 
     };
 
@@ -77,8 +84,8 @@ class CreateProduct extends React.Component {
 
                     <FormInput
                         type='text'
-                        name='flavor_profile'
-                        value={this.state.flavor_profile}
+                        name='flavorProfile'
+                        value={this.state.flavorProfile}
                         onChange={this.handleChange}
                         label='Flavor Profile'
                         required

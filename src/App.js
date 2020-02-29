@@ -43,8 +43,11 @@ class App extends React.Component {
           });
         });
       }
-      
+      console.log(userAuth);
+      localStorage.setItem("userID", userAuth.uid);
+      localStorage.setItem("displayName", userAuth.displayName);
       this.setState({ currentUser: userAuth });
+      //console.log('auth', currentUser);
     })
   }
 

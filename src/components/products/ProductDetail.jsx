@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../products/products.css';
 import {withRouter} from 'react-router-dom'
+import AddReview from '../reviews/AddReview';
 
 
 class ProductDetail extends Component {
@@ -15,62 +16,53 @@ class ProductDetail extends Component {
     componentDidMount() {
         console.log('here');
         const id = this.props.match.params.id;
-        console.log(this.props);
-        console.log('id', this.props.match.params.id);
         axios.get('/api/products/' + id)
         .then( ({data}) => {
-            console.log({data});
+            data['id'] = this.props.match.params.id;
             this.setState( {
                 isLoading: false, 
-                data
+                data:data
             });
-            console.log(this.state, 'state');
-
         })
     }
-    // clickHandler() {
-    //     this.props.history.push('/products/' + this.props.productId);
-    //     console.log('props', this.props); //not rendering
-    // }
+    
 
     render() {
 
-           // console.log('product detail', this.state);
-
         return (
-    this.state.isLoading ? <div>I am loading</div> :
+        this.state.isLoading ? <div>I am loading</div> :
             <div className="row">
-                <div className="col s12 m6 l4">
-                    {/* <div className="card medium" onClick={this.clickHandler.bind(this)}> */}
-                    <div className="card medium">
-                        <div className="card-image">
-                            <img className="product-image pos-rel responsive-img" alt={this.state.data.name} src={`${this.state.data.imageUrl}`} />
-                        </div>
-
-                        <div className="pos-rel center-align">
-                            <div className="type-container pos-abs">
-                                <p className="z-depth-1 type-detail">{this.state.data.type}</p>
-                            </div>
-                        </div>
-                        
-                        <div className="card-content">
-                            <div className="card-title">
-                                {this.state.data.name}
-                            </div>
-                            
-                            <div className="" key={this.state.data.id}>
-                                <p><em>{this.state.data.subTitle}{this.state.data.flavorProfile}</em></p>
-                                <p>{this.state.data.size} | ${this.state.data.price}</p>
-                            </div>
-                        </div>
-                        
-                
-                    </div>
+                <div className="s12">
+                    <h2>{this.state.data.name}</h2>
+                    <p><em>{this.state.data.subTitle}{this.state.data.flavorProfile}</em></p>
                 </div>
-            
-            </div>
-            
 
+                <div className="col s12 m6">
+                    <div className="card-image">
+                        <img className="product-image responsive-img" alt={this.state.data.name} src={`${this.state.data.imageUrl}`} />
+                    </div>
+
+                </div>
+
+                <div className="col s12 m6" key={this.state.data.id}>
+                    <p className="description"><strong>ABOUT THIS COFFEE</strong><br />
+                    {this.state.data.description}</p>
+                    <p className="details">{this.state.data.size} | ${this.state.data.price}</p>
+                    <p>Add quantity</p>
+                    <a className="waves-effect waves-light btn-large">Buy now</a>
+                </div>
+
+                <div className="col s12 reviews">
+                    <p><strong>REVIEWS</strong></p>
+                    
+                        <AddReview productInfo={this.state.data} />
+                        <span>see reviews here</span><br />
+        
+                    
+                </div>
+            </div>
+    
+            
         );
     }
 }

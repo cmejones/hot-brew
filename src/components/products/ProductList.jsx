@@ -2,23 +2,13 @@ import React from 'react';
 import '../products/products.css';
 
 
-// const newId = document.getElementById('key');
-
-// function addAttribute(doc) {
-//     let id = this.props.doc.id;
-//     newId.setAttribute(id);
-// }
-
 class ProductList extends React.Component {
 
     render() {
 
         let link = '/products/' + this.props.productId;
-        console.log(this.props.productId, 'this props');
         
-
         return (
-
         
                 <div className="col s12 m6 l4">
     

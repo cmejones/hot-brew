@@ -14,10 +14,8 @@ class Products extends Component {
         }
     }
         componentDidMount() {
-            console.log('test');
             axios.get('/api/products/')      
             .then(response => {
-                console.log('products', response.data);
                 this.setState({
                     isLoading: false, 
                     products: response.data
@@ -31,7 +29,6 @@ class Products extends Component {
         
         const allProducts = this.state.products.map((product) => {
             return <ProductList key={product.product_id} {...product} />
-            console.log('allpro', allProducts);
         });
 
         return (
