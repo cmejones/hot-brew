@@ -17,7 +17,7 @@ class Users extends Component {
     }
 
     async componentDidMount() {
-        const response = await axios.get('http://localhost:3001/api/users');
+        const response = await axios.get('/api/users');
         if(response) {
             this.setState({users: response.data})
             console.log(this.state.users, 'users');

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 //import ProductList from '../products/ProductList';
 import { connect } from 'react-redux';
-import Products from '../dashboard/Products';
-import '../products/products.css';
+import Products from './Products';
+import '../components/products/products.css';
 
 class Dashboard extends Component {
     render() {

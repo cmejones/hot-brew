@@ -36,7 +36,7 @@ class User extends Component {
     componentDidMount() {
         console.log('here');
         //const userId = this.props.match.params.id;
-        axios.get('http://localhost:3001/api/users/')
+        axios.get('/api/users/')
         .then( (response) => {
             this.successShow(response);
             })

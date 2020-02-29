@@ -9,8 +9,8 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import ProductList from './components/products/ProductList';
 import ProductDetail from './components/products/ProductDetail';
 import CreateProduct from './components/products/CreateProduct';
-import Dashboard from './components/dashboard/Dashboard';
-import Products from './components/dashboard/Products';
+import Dashboard from './pages/Dashboard';
+import Products from './pages/Products';
 
 class App extends React.Component {
   constructor() {

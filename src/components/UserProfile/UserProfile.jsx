@@ -32,10 +32,10 @@ class UserProfile extends Component {
         return (
             this.state.userProfile ?
                 <div className="UserProfile" onClick={this.clickHandler.bind(this)}>
-                    <div className="left">
+                    <div className="">
                         <strong>{this.state.userProfile.displayName}</strong>
                     </div>
-                    <div className="right">
+                    <div className="">
                         <strong>{this.state.userProfile.email}</strong>
                     </div>
                 </div> : <div></div>
