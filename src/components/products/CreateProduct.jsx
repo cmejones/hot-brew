@@ -1,7 +1,7 @@
 import React from 'react';
 import { createProduct } from '../../store/actions/productActions';
-import { connect } from 'react-redux';
-
+// import { connect } from 'react-redux';
+import { createNewProduct} from '../../firebase/firebase.utils';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import axios from 'axios';
@@ -35,18 +35,37 @@ class CreateProduct extends React.Component {
         })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-       // console.log('state', this.state);
-        this.props.createProduct(this.state);
-        axios.post('/api/products/new', (req, res, next) => {
-            //soemthing
-        })
-        .then((event) => {
-            console.log('event',event)
-        })
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const data = this.state;
+    //     console.log('data', data);
+    //     axios.post('/api/products/new', {
+    //         data: data
+    //     })  
+    //     .then((response) => {
+    //         console.log('event',response)
+    //     }, (error) => {
+    //         console.log(error);
+    //     })
 
-    };
+    // };
+
+    handleSubmit = async event => {
+        event.preventDefault();
+
+        const data = this.state;
+
+        await createNewProduct(data)
+            
+            this.setState({
+                name: '',
+                category: '',
+                imageURL: '',
+                description: ''
+            });
+        };
+    
+
 
 
     render() {
@@ -135,10 +154,11 @@ class CreateProduct extends React.Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createProduct: (product) => dispatch(createProduct(product))
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         createProduct: (product) => dispatch(createProduct(product))
+//     }
+// }
 
-export default connect(null, mapDispatchToProps)(CreateProduct);
+// export default connect(null, mapDispatchToProps)(CreateProduct);
+export default CreateProduct;

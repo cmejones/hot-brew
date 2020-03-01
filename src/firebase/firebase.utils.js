@@ -42,6 +42,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 };
 
+// save new products info in firestore database
+export const createNewProduct = async (data) => {
+
+  const newProduct = db.collection('products');
+
+      await newProduct.add({
+        data
+      }).then(ref => {
+        console.log('Added document with id: ', ref.id);
+      })
+
+  return newProduct;
+
+};
+
 //export const myFirebase = firebase.initializeApp(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
 
