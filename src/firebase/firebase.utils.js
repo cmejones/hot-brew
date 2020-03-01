@@ -47,9 +47,9 @@ export const createNewProduct = async (data) => {
 
   const newProduct = db.collection('products');
 
-      await newProduct.add({
+      await newProduct.add(
         data
-      }).then(ref => {
+      ).then(ref => {
         console.log('Added document with id: ', ref.id);
       })
 
@@ -57,6 +57,12 @@ export const createNewProduct = async (data) => {
 
 };
 
+//Delete doc from collection
+export const deleteProduct = async (data) => {
+  console.log('firease data', data);
+  let deleteDoc = db.collection('products').doc(data).delete();
+
+}
 //export const myFirebase = firebase.initializeApp(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
 

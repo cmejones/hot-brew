@@ -20,6 +20,7 @@ class Products extends Component {
                     isLoading: false, 
                     products: response.data
                 });
+                console.log('products on productspage', this.state);
             })
         }
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../products/products.css';
 import {withRouter} from 'react-router-dom'
 import AddReview from '../reviews/AddReview';
+import DeleteProduct from './DeleteProduct';
 
 
 class ProductDetail extends Component {
@@ -28,7 +29,9 @@ class ProductDetail extends Component {
     
 
     render() {
-
+        let editLink = '/products/edit/' + this.props.productId;
+        // let deleteLink = deleteProduct + this.props.productId;
+        // console.log(deleteLink, 'deletelink');
         return (
         this.state.isLoading ? <div>I am loading</div> :
             <div className="row">
@@ -59,6 +62,10 @@ class ProductDetail extends Component {
                         <span>see reviews here</span><br />
         
                     
+                </div>
+                <div className="col s12 delete">
+                    <DeleteProduct productInfo={this.state.data} />
+                    <p><a href={editLink}>Edit</a></p>
                 </div>
             </div>
     

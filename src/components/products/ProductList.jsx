@@ -7,6 +7,7 @@ class ProductList extends React.Component {
     render() {
 
         let link = '/products/' + this.props.productId;
+        console.log('productlist', this.props.state);
         
         return (
         

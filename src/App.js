@@ -11,6 +11,7 @@ import ProductDetail from './components/products/ProductDetail';
 import CreateProduct from './components/products/CreateProduct';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
+import EditProduct from './components/products/EditProduct';
 
 class App extends React.Component {
   constructor() {
@@ -38,12 +39,12 @@ class App extends React.Component {
               ...snapShot.data()
             }
           }, () => {
-            console.log(this.state);
+            //console.log(this.state);
           
           });
         });
       }
-      console.log(userAuth);
+      //console.log(userAuth);
       localStorage.setItem("userID", userAuth.uid);
       localStorage.setItem("displayName", userAuth.displayName);
       this.setState({ currentUser: userAuth });
@@ -66,6 +67,7 @@ class App extends React.Component {
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/products' component={Products}  />
           <Route path='/products/:id' component={ProductDetail} />
+          <Route path='/products/edit/:id' component={EditProduct} />
           <Route path='/create-product' component={CreateProduct} />
         </Switch>
       
