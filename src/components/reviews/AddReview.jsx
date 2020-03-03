@@ -3,7 +3,7 @@ import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { auth } from '../../firebase/firebase.utils';
+import { auth, createNewReview } from '../../firebase/firebase.utils';
 
 import '../sign-up/sign-up.styles.css';
 
@@ -21,22 +21,35 @@ class AddReview extends React.Component {
             review: ''
         }
         console.log(this.state, 'add review');
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit = async event => {
+    handleChange = (event) => {
         event.preventDefault();
 
-        const { displayName, userId, review, productId } = this.state;
-        console.log('submit', this.state);
+        const { name, value } = event.target
+
+        this.setState({ 
+            [name]: value 
+        });
+        console.log('change', this.state);
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        const data = this.state;
+        createNewReview(data)
+        this.setState({
+            review:''
+        });
+
+        console.log('submit', data);
     
     };
 
-    handleChange = event => {
-        const { name, value } = event.target
 
-        this.setState({ [name]: value });
-        console.log('change', this.state);
-    }
 
     render() {
 

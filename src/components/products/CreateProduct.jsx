@@ -16,7 +16,7 @@ class CreateProduct extends React.Component {
         this.state = {
             name: '',
             type: '',
-            imageURL: '',
+            imageUrl: '',
             flavorProfile: '',
             category: '',
             size: '',
@@ -29,26 +29,13 @@ class CreateProduct extends React.Component {
     }
     
     handleChange = (event) => {
+        event.preventDefault();
+        
         const { name, value } = event.target
         this.setState({
             [name]: value
         })
     }
-
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const data = this.state;
-    //     console.log('data', data);
-    //     axios.post('/api/products/new', {
-    //         data: data
-    //     })  
-    //     .then((response) => {
-    //         console.log('event',response)
-    //     }, (error) => {
-    //         console.log(error);
-    //     })
-
-    // };
 
     handleSubmit = async event => {
         event.preventDefault();
@@ -59,8 +46,12 @@ class CreateProduct extends React.Component {
             
             this.setState({
                 name: '',
+                type: '',
+                imageUrl: '',
+                flavorProfile: '',
                 category: '',
-                imageURL: '',
+                size: '',
+                price: '',
                 description: ''
             });
         };
@@ -94,8 +85,8 @@ class CreateProduct extends React.Component {
                 
                     <FormInput
                         type='text'
-                        name='imageURL'
-                        value={this.state.imageURL}
+                        name='imageUrl'
+                        value={this.state.imageUrl}
                         onChange={this.handleChange}
                         label='Image'
                         required
@@ -154,11 +145,4 @@ class CreateProduct extends React.Component {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         createProduct: (product) => dispatch(createProduct(product))
-//     }
-// }
-
-// export default connect(null, mapDispatchToProps)(CreateProduct);
 export default CreateProduct;

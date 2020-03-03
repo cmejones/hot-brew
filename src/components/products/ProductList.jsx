@@ -7,7 +7,8 @@ class ProductList extends React.Component {
     render() {
 
         let link = '/products/' + this.props.productId;
-        console.log('productlist', this.props.state);
+        let editLink = '/product/edit/' + this.props.productId;
+       // console.log('productlist', this.props.state);
         
         return (
         
@@ -37,6 +38,7 @@ class ProductList extends React.Component {
         
                     </div>
                 </a>
+                <div><a href={editLink}>Edit</a></div>
             </div>
         );
     }

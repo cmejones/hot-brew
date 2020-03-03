@@ -11,11 +11,11 @@ import '../sign-up/sign-up.styles.css';
 class DeleteProduct extends React.Component {
     constructor(props) {
         super(props);
-        console.log('this props',this.props);
+        //console.log('this props',this.props);
         this.state = {
             productId: this.props.productInfo.id,
         }
-        console.log(this.state, 'delete state');
+        //console.log(this.state, 'delete state');
     }
 
     handleDelete = async event => {

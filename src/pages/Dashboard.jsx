@@ -18,9 +18,10 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.product.products
-    }
-}
-export default connect(mapStateToProps)(Dashboard)
+// const mapStateToProps = (state) => {
+//     return {
+//         products: state.product.products
+//     }
+// }
+// export default connect(mapStateToProps)(Dashboard)
+export default Dashboard;

@@ -67,7 +67,7 @@ class App extends React.Component {
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/products' component={Products}  />
           <Route path='/products/:id' component={ProductDetail} />
-          <Route path='/products/edit/:id' component={EditProduct} />
+          <Route path='/product/edit/:id' component={EditProduct} />
           <Route path='/create-product' component={CreateProduct} />
         </Switch>
       

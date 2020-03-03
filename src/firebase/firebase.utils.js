@@ -42,6 +42,21 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 };
 
+// POST new review 
+export const createNewReview = async (data) => {
+
+  const newReview = db.collection('reviews');
+
+      await newReview.add(
+        data
+      ).then(ref => {
+        console.log('Added document with id: ', ref.id);
+      })
+
+  return newReview;
+
+};
+
 // save new products info in firestore database
 export const createNewProduct = async (data) => {
 
@@ -54,6 +69,45 @@ export const createNewProduct = async (data) => {
       })
 
   return newProduct;
+
+};
+
+// UPDATE products info in firestore database
+// export const updateProduct = async (data) => {
+
+//   const editProduct = db.collection('products').doc(ref.id);
+
+//       await editProduct.update(
+//         data
+//       ).then(ref => {
+//         console.log('Updated document with id: ', ref.id);
+//       })
+
+//   return editProduct;
+
+// };
+// update product info in firestore database
+export const updateProduct = async (data) => {
+ // if (!data.id) return;
+console.log('firestore', data)
+  const productRef = firestore.doc('products/');
+  
+  const snapShot = await productRef.get();
+
+  if (!snapShot.exists) {
+    const { productId } = productId;
+
+    try {
+      await productRef.update(
+        data
+      )
+
+    } catch (error) {
+      console.log('error updating product', error.message);
+    }
+  }
+
+  return productRef;
 
 };
 

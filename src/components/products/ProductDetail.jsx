@@ -4,10 +4,12 @@ import '../products/products.css';
 import {withRouter} from 'react-router-dom'
 import AddReview from '../reviews/AddReview';
 import DeleteProduct from './DeleteProduct';
+import DisplayReviews from '../reviews/DisplayReviews';
+//import EditProduct from './EditProduct';
 
 
 class ProductDetail extends Component {
-        constructor(props) {
+    constructor(props) {
         super(props);
         this.state= {
             isLoading: true
@@ -15,7 +17,7 @@ class ProductDetail extends Component {
     }
 
     componentDidMount() {
-        console.log('here');
+        console.log('product detail here');
         const id = this.props.match.params.id;
         axios.get('/api/products/' + id)
         .then( ({data}) => {
@@ -29,9 +31,7 @@ class ProductDetail extends Component {
     
 
     render() {
-        let editLink = '/products/edit/' + this.props.productId;
-        // let deleteLink = deleteProduct + this.props.productId;
-        // console.log(deleteLink, 'deletelink');
+
         return (
         this.state.isLoading ? <div>I am loading</div> :
             <div className="row">
@@ -57,15 +57,13 @@ class ProductDetail extends Component {
 
                 <div className="col s12 reviews">
                     <p><strong>REVIEWS</strong></p>
-                    
-                        <AddReview productInfo={this.state.data} />
-                        <span>see reviews here</span><br />
-        
-                    
+                    <DisplayReviews productInfo={this.state.data} />
+                    <AddReview productInfo={this.state.data} />                 
                 </div>
+                
                 <div className="col s12 delete">
                     <DeleteProduct productInfo={this.state.data} />
-                    <p><a href={editLink}>Edit</a></p>
+                    {/* <a href={editLink}>Edit Product</a> */}
                 </div>
             </div>
     
