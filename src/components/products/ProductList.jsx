@@ -8,7 +8,6 @@ class ProductList extends React.Component {
 
         let link = '/products/' + this.props.productId;
         let editLink = '/product/edit/' + this.props.productId;
-       // console.log('productlist', this.props.state);
         
         return (
         

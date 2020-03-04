@@ -32,7 +32,7 @@ class DeleteProduct extends React.Component {
 
         return (
         <form onSubmit={this.handleDelete} >
-            <CustomButton type='submit'>Delete Product</CustomButton>
+            <input type='submit' value='delete product' />
         </form> 
         )
     

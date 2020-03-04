@@ -10,7 +10,7 @@ class DisplayReviews extends React.Component {
             productId: this.props.productInfo.id, 
             isLoading: true
         }
-        console.log('ireview state', this.state);
+        //console.log('review state', this.state);
     }
         componentDidMount() {
             const id = this.state.productId;
@@ -20,19 +20,21 @@ class DisplayReviews extends React.Component {
                     isLoading: false, 
                     reviewsByItem: response.data
                 });
+                //console.log('did mount', this.state);
             })
         }
     
 
     render() {
-        console.log('review props', this.state.reviewsByItem);
-
-        const allReviews = this.state.reviewsByItem.map((review) => {
-            //return review;
-        });
-        console.log('allreviews', allReviews)
+       // console.log('review props', this.state.reviewsByItem);
         return (
-    <div></div>
+    
+        <div>
+            {this.state.reviewsByItem.map(function(review, reviewId){
+                return (<div key={reviewId}>{review.review}</div>)
+            })}
+        </div>
+    
             // <div key={this.props.product_id} id={this.state.productId}>
             //     <div className="card-content">
             //             {this.state.review}

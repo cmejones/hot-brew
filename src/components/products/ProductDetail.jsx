@@ -56,14 +56,15 @@ class ProductDetail extends Component {
                 </div>
 
                 <div className="col s12 reviews">
-                    <p><strong>REVIEWS</strong></p>
-                    <DisplayReviews productInfo={this.state.data} />
                     <AddReview productInfo={this.state.data} />                 
                 </div>
+                <div className="col s12 reviews">
+                    <p><strong>REVIEWS</strong></p>  
+                    <DisplayReviews productInfo={this.state.data} />              
+                </div>                
                 
-                <div className="col s12 delete">
+                <div className="col s3 delete">
                     <DeleteProduct productInfo={this.state.data} />
-                    {/* <a href={editLink}>Edit Product</a> */}
                 </div>
             </div>
     
