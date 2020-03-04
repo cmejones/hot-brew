@@ -14,7 +14,7 @@ class CreateProduct extends React.Component {
         super(props);
 
         this.state = {
-            name: '',
+            productName: '',
             type: '',
             imageUrl: '',
             flavorProfile: '',
@@ -45,7 +45,7 @@ class CreateProduct extends React.Component {
         await createNewProduct(data)
             
             this.setState({
-                name: '',
+                productName: '',
                 type: '',
                 imageUrl: '',
                 flavorProfile: '',
@@ -67,8 +67,8 @@ class CreateProduct extends React.Component {
                 <form className='create-product-form' onSubmit={this.handleSubmit} >
                     <FormInput
                         type='text'
-                        name='name'
-                        value={this.state.name}
+                        name='productName'
+                        value={this.state.productName}
                         onChange={this.handleChange}
                         label='Product Name'
                         required

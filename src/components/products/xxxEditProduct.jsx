@@ -36,35 +36,16 @@ class EditProduct extends React.Component {
                 size: data.size,
                 price: data.price,
                 description: data.description
+
+
             });
             console.log('new props', this.state);
+
         })
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);        
     }
-
-
-        // this.state = {
-        //     productId: this.props.productInfo.id,
-        //     name: this.props.name,
-        //     type: this.props.type,
-        //     imageURL: this.props.imageURL,
-        //     flavorProfile: this.props.flavorProfile,
-        //     category: this.props.category,
-        //     size: this.props.size,
-        //     price: this.props.price,
-        //     description: this.props.description
-
-        // };
-      //  this.handleChange = this.handleChange.bind(this);
-     //   this.handleSubmit = this.handleSubmit.bind(this);
-   // }
     
-    // handleChange = (event) => {
-    //     const { name, value } = event.target
-    //     this.setState({
-    //         [name]: value
-    //     })
-    // }
-
     handleChange = (event) => {
         event.preventDefault();
         //const { name, value } = event.target
@@ -85,35 +66,21 @@ class EditProduct extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
 
-        //const data = this.state.data;
-        const id = this.props.match.params.id;
-    
-        
-        console.log(id, this.state, 'hhhhhhh');
-            
-            let data = {
-                productId: id, 
-                productName: this.state.productName,
-                type: this.state.type,
-                imageUrl: this.state.imageUrl,
-                flavorProfile: this.state.flavorProfile,
-                category: this.state.category,
-                size: this.state.size,
-                price: this.state.price,
-                description: this.state.description
-            }
-            //await updateProduct(data, id)
-            axios.put('http://localhost:3001/api/products/update/' + id, {
-                data
-            })
-            .then( (response) => {
-                console.log(response);
-     
-            this.setState(data);
+        const data = this.state.data;
 
-        })
-        
-console.log('sent to db', data);
+        await updateProduct(data)
+            
+            this.setState({
+                productName: data.productName,
+                type: data.type,
+                imageUrl: data.imageUrl,
+                flavorProfile: data.flavorProfile,
+                category: data.category,
+                size: data.size,
+                price: data.price,
+                description: data.description
+            });
+            console.log('submit state', this.state)
         };
     
     render() {
@@ -126,7 +93,7 @@ console.log('sent to db', data);
                         type='text'
                         name='productName'
                         defaultValue={this.state.productName}
-                        onChange={event => this.setState({productName: event.target.value})}
+                        onChange={this.handleChange}
                         label='Product Name'
                         required
                     /> 
@@ -135,7 +102,7 @@ console.log('sent to db', data);
                         type='text'
                         name='type'
                         defaultValue={this.state.type}
-                        onChange={event => this.setState({type: event.target.value})}
+                        onChange={this.handleChange}
                         label='Type'
                         required
                     /> 
@@ -144,7 +111,7 @@ console.log('sent to db', data);
                         type='text'
                         name='imageUrl'
                         defaultValue={this.state.imageUrl}
-                        onChange={event => this.setState({imageUrl: event.target.value})}
+                        onChange={this.handleChange}
                         label='Image'
                         required
                     /> 
@@ -153,7 +120,7 @@ console.log('sent to db', data);
                         type='text'
                         name='flavorProfile'
                         defaultValue={this.state.flavorProfile}
-                        onChange={event => this.setState({flavorProfile: event.target.value})}
+                        onChange={this.handleChange}
                         label='Flavor Profile'
                         required
                     /> 
@@ -162,7 +129,7 @@ console.log('sent to db', data);
                         type='text'
                         name='category'
                         defaultValue={this.state.category}
-                        onChange={event => this.setState({category: event.target.value})}
+                        onChange={this.handleChange}
                         label='Product Category'
                         required
                     /> 
@@ -171,25 +138,26 @@ console.log('sent to db', data);
                         type='text'
                         name='size'
                         defaultValue={this.state.size}
-                        onChange={event => this.setState({size: event.target.value})}
+                        onChange={this.handleChange}
+                        // onChange={data => this.setState({size: data})}
                         label='Size'
                         required
-                    /> 
- 
+                    />
+
                     <input
                         type='integer'
                         name='price'
                         defaultValue={this.state.price}
-                        onChange={event => this.setState({price: event.target.value})}
+                        onChange={this.handleChange}
                         label='Price'
                         required
-                    /> 
+                    />
 
                     <input
                         type='text'
                         name='description'
                         defaultValue={this.state.description}
-                        onChange={event => this.setState({description: event.target.value})}
+                        onChange={this.handleChange}
                         label='Description'
                         required
                     />

@@ -16,7 +16,7 @@ class ProductList extends React.Component {
     
                     <a href={link}><div className="card medium" key={this.props.product_id} id={this.props.product_id}>
                         <div className="card-image">
-                            <img className="product-image pos-rel responsive-img" alt={this.props.name} src={`${this.props.imageUrl}`} />
+                            <img className="product-image pos-rel responsive-img" alt={this.props.productName} src={`${this.props.imageUrl}`} />
                         </div>
 
                         <div className="pos-rel center-align">
@@ -27,7 +27,7 @@ class ProductList extends React.Component {
                         
                         <div className="card-content">
                             <div className="card-title">
-                                {this.props.name}
+                                {this.props.productName}
                             </div>
                             
                             <div className="" key={this.props.id}>

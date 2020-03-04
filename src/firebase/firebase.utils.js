@@ -88,10 +88,11 @@ export const createNewProduct = async (data) => {
 // };
 // update product info in firestore database
 export const updateProduct = async (data) => {
- // if (!data.id) return;
+  console.log('am i here?');
+  //if (!data.id) return;
 console.log('firestore', data)
-  const productRef = firestore.doc('products/');
-  
+  //const productRef = firestore.doc('products/');
+  const productRef = db.collection('products').doc('CMDEcacmikpg67075he6');
   const snapShot = await productRef.get();
 
   if (!snapShot.exists) {

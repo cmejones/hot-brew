@@ -36,13 +36,13 @@ class ProductDetail extends Component {
         this.state.isLoading ? <div>I am loading</div> :
             <div className="row">
                 <div className="s12">
-                    <h2>{this.state.data.name}</h2>
-                    <p><em>{this.state.data.subTitle}{this.state.data.flavorProfile}</em></p>
+                    <h2>{this.state.data.productName}</h2>
+                    <p><em>{this.state.data.flavorProfile}</em></p>
                 </div>
 
                 <div className="col s12 m6">
                     <div className="card-image">
-                        <img className="product-image responsive-img" alt={this.state.data.name} src={`${this.state.data.imageUrl}`} />
+                        <img className="product-image responsive-img" alt={this.state.data.productName} src={`${this.state.data.imageUrl}`} />
                     </div>
 
                 </div>
