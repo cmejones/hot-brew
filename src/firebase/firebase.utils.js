@@ -72,20 +72,6 @@ export const createNewProduct = async (data) => {
 
 };
 
-// UPDATE products info in firestore database
-// export const updateProduct = async (data) => {
-
-//   const editProduct = db.collection('products').doc(ref.id);
-
-//       await editProduct.update(
-//         data
-//       ).then(ref => {
-//         console.log('Updated document with id: ', ref.id);
-//       })
-
-//   return editProduct;
-
-// };
 // update product info in firestore database
 export const updateProduct = async (data) => {
   console.log('am i here?');
@@ -112,12 +98,6 @@ console.log('firestore', data)
 
 };
 
-//Delete doc from collection
-export const deleteProduct = async (data) => {
-  console.log('firease data', data);
-  let deleteDoc = db.collection('products').doc(data).delete();
-
-}
 //export const myFirebase = firebase.initializeApp(firebaseConfig);
 firebase.initializeApp(firebaseConfig);
 

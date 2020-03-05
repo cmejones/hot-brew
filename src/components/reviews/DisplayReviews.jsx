@@ -20,30 +20,21 @@ class DisplayReviews extends React.Component {
                     isLoading: false, 
                     reviewsByItem: response.data
                 });
-                //console.log('did mount', this.state);
+                console.log('did mount', this.state);
             })
         }
     
 
     render() {
-       // console.log('review props', this.state.reviewsByItem);
+        console.log('review props', this.state.reviewsByItem);
         return (
     
-        <div>
+        <div className='left-align'>
             {this.state.reviewsByItem.map(function(review, reviewId){
-                return (<div key={reviewId}>{review.review}</div>)
+                return (<div className="reviewDetail" key={reviewId}>{review.review}<span className="reviewerName">~{review.displayName}</span></div>)
             })}
         </div>
-    
-            // <div key={this.props.product_id} id={this.state.productId}>
-            //     <div className="card-content">
-            //             {this.state.review}
-                    
-            //         <div>
-            //             {/* <p>Submitted by: {this.state.reviews.displayName}</p> */}
-            //         </div>
-            //     </div>
-            // </div>
+
         );
     }
 }

@@ -1,9 +1,7 @@
 import React from 'react';
-//import { createProduct } from '../../store/actions/productActions';
-// import { connect } from 'react-redux';
-import FormInput from '../form-input/form-input.component';
+//import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { updateProduct } from '../../firebase/firebase.utils';
+//import { updateProduct } from '../../firebase/firebase.utils';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom'
 
@@ -25,7 +23,6 @@ class EditProduct extends React.Component {
         axios.get('/api/products/' + id)
         .then( ({data}) => {
             console.log('data', data)
-           // data['id'] = this.props.match.params.id;
             this.setState( {
                 isLoading: false, 
                 productName: data.productName,
@@ -41,35 +38,9 @@ class EditProduct extends React.Component {
         })
     }
 
-
-        // this.state = {
-        //     productId: this.props.productInfo.id,
-        //     name: this.props.name,
-        //     type: this.props.type,
-        //     imageURL: this.props.imageURL,
-        //     flavorProfile: this.props.flavorProfile,
-        //     category: this.props.category,
-        //     size: this.props.size,
-        //     price: this.props.price,
-        //     description: this.props.description
-
-        // };
-      //  this.handleChange = this.handleChange.bind(this);
-     //   this.handleSubmit = this.handleSubmit.bind(this);
-   // }
-    
-    // handleChange = (event) => {
-    //     const { name, value } = event.target
-    //     this.setState({
-    //         [name]: value
-    //     })
-    // }
-
     handleChange = (event) => {
         event.preventDefault();
-        //const { name, value } = event.target
         this.setState({
-            //[name]: value
                 productName: this.state.productName,
                 type: this.state.type,
                 imageUrl: this.state.imageUrl,
@@ -79,17 +50,13 @@ class EditProduct extends React.Component {
                 price: this.state.price,
                 description: this.state.description
         })
-        console.log('handle change state', this.state);
+        //console.log('handle change state', this.state);
     }
 
     handleSubmit = async event => {
         event.preventDefault();
 
-        //const data = this.state.data;
         const id = this.props.match.params.id;
-    
-        
-        console.log(id, this.state, 'hhhhhhh');
             
             let data = {
                 productId: id, 
@@ -102,18 +69,15 @@ class EditProduct extends React.Component {
                 price: this.state.price,
                 description: this.state.description
             }
-            //await updateProduct(data, id)
             axios.put('http://localhost:3001/api/products/update/' + id, {
                 data
             })
             .then( (response) => {
                 console.log(response);
-     
             this.setState(data);
 
         })
-        
-console.log('sent to db', data);
+        console.log('sent to db', data);
         };
     
     render() {
@@ -175,7 +139,7 @@ console.log('sent to db', data);
                         label='Size'
                         required
                     /> 
- 
+
                     <input
                         type='integer'
                         name='price'
@@ -196,6 +160,7 @@ console.log('sent to db', data);
 
                     <CustomButton type='submit'>Save Changes</CustomButton>
                 </form>
+            
             </div>
         )
     

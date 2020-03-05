@@ -3,9 +3,8 @@ import axios from 'axios';
 import '../products/products.css';
 import {withRouter} from 'react-router-dom'
 import AddReview from '../reviews/AddReview';
-import DeleteProduct from './DeleteProduct';
 import DisplayReviews from '../reviews/DisplayReviews';
-//import EditProduct from './EditProduct';
+import CustomButton from '../custom-button/custom-button.component';
 
 
 class ProductDetail extends Component {
@@ -47,25 +46,19 @@ class ProductDetail extends Component {
 
                 </div>
 
-                <div className="col s12 m6" key={this.state.data.id}>
-                    <p className="description"><strong>ABOUT THIS COFFEE</strong><br />
+                <div className="col s12 m6 left-align" key={this.state.data.id}>
+                    <p className="description"><span className="description-title">ABOUT THIS COFFEE</span><br />
                     {this.state.data.description}</p>
                     <p className="details">{this.state.data.size} | ${this.state.data.price}</p>
                     <p>Add quantity</p>
-                    <a className="waves-effect waves-light btn-large">Buy now</a>
+                    <CustomButton type='submit'>Buy Now</CustomButton>
                 </div>
-
-                <div className="col s12 reviews">
-                    <AddReview productInfo={this.state.data} />                 
-                </div>
-                <div className="col s12 reviews">
-                    <p><strong>REVIEWS</strong></p>  
-                    <DisplayReviews productInfo={this.state.data} />              
-                </div>                
+                <div className="col s12 m6 reviews left-align">
+                    <p className="description-title">REVIEWS</p>  
+                    <DisplayReviews productInfo={this.state.data} />  
+                    <AddReview productInfo={this.state.data} />              
+                </div> 
                 
-                <div className="col s3 delete">
-                    <DeleteProduct productInfo={this.state.data} />
-                </div>
             </div>
     
             

@@ -13,14 +13,14 @@ let displayName= window.localStorage.getItem('displayName');
 class AddReview extends React.Component {
     constructor(props) {
         super(props);
-        console.log('this props',this.props);
+        //console.log('this props',this.props);
         this.state = {
             userId: userId,
             displayName: displayName,
             productId: this.props.productInfo.id,
             review: ''
         }
-        console.log(this.state, 'add review');
+        //console.log(this.state, 'add review');
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -56,7 +56,7 @@ class AddReview extends React.Component {
         const { userId, displayName, review, productId } = this.state;
         return (
         this.state.userId ?
-            <div className='addReview'><strong>Tell us what you think about this product!</strong>
+            <div className='addReview'>
     
                 <form className='review-form' onSubmit={this.handleSubmit} >
                     <FormInput
@@ -64,7 +64,7 @@ class AddReview extends React.Component {
                         name='review'
                         value={review}
                         onChange={this.handleChange}
-                        label='Review'
+                        label='Tell us what you think!'
                         required
                     />
                 

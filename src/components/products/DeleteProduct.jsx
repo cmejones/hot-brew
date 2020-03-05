@@ -1,30 +1,29 @@
 import React from 'react';
-
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
-
 import { auth } from '../../firebase/firebase.utils';
-import {deleteProduct} from '../../firebase/firebase.utils';
 import '../sign-up/sign-up.styles.css';
-
+import axios from 'axios';
 
 class DeleteProduct extends React.Component {
     constructor(props) {
         super(props);
-        //console.log('this props',this.props);
-        this.state = {
-            productId: this.props.productInfo.id,
+        this.state= {
+            isLoading: true
         }
-        //console.log(this.state, 'delete state');
+           // console.log('edit', this.props)
     }
 
     handleDelete = async event => {
         console.log('hit delete');
         event.preventDefault();
 
-        const data = this.state.productId;
+        const id = this.props.match.params.id;
+        
+        axios.delete('http://localhost:3001/api/products/delete/' + id, {
 
-        await deleteProduct(data)
+        })
+        .then((response) => {
+            console.log(response, 'sent to db');
+        })
     
         };
 

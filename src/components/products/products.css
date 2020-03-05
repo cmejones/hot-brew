@@ -64,11 +64,31 @@ a:hover {
     max-width:100%;
 }
 
-.description {
-    padding-right:5em;
-    padding-left:5em;
+.description-title {
+    font-weight:600;
 }
+
+.description {
+    padding-right:2em;
+    padding-left:.5em;
+}
+
+.details {
+    padding-right:2em;
+    padding-left:.5em;
+}
+
 .reviews {
     margin-top: 20px;
-    border-top:1px solid gray;
+    border-top:5px solid gray;
+    padding-right:2em;
+}
+
+.reviewerName {
+    padding-left:.5em;
+}
+
+.reviewDetail {
+    margin:20px 10px;
+    border-bottom:1px solid #26a69a;
 }

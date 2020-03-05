@@ -1,5 +1,6 @@
 import React from 'react';
 import '../products/products.css';
+//import DeleteProduct from './DeleteProduct';
 
 
 class ProductList extends React.Component {
@@ -8,6 +9,8 @@ class ProductList extends React.Component {
 
         let link = '/products/' + this.props.productId;
         let editLink = '/product/edit/' + this.props.productId;
+        //console.log(this.props.productId);
+        let deleteLink = '/product/delete/' + this.props.productId;
         
         return (
         
@@ -37,7 +40,9 @@ class ProductList extends React.Component {
         
                     </div>
                 </a>
-                <div><a href={editLink}>Edit</a></div>
+                <div><a href={editLink}>Edit</a><br />
+                <a href={deleteLink}>Delete</a></div>
+        
             </div>
         );
     }

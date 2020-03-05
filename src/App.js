@@ -12,6 +12,7 @@ import CreateProduct from './components/products/CreateProduct';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import EditProduct from './components/products/EditProduct';
+import DeleteProduct from './components/products/DeleteProduct';
 
 class App extends React.Component {
   constructor() {
@@ -68,6 +69,7 @@ class App extends React.Component {
           <Route exact path='/products' component={Products}  />
           <Route path='/products/:id' component={ProductDetail} />
           <Route path='/product/edit/:id' component={EditProduct} />
+          <Route path='/product/delete/:id' component={DeleteProduct} />
           <Route path='/create-product' component={CreateProduct} />
         </Switch>
       
