@@ -1,0 +1,94 @@
+.filter {
+    height:60px;
+    width:100%;
+    position: sticky;
+    z-index: 400;
+    background-color: aliceblue;
+    top:0;
+    margin: 20px 0; 
+}
+.pos-rel {
+    position: relative;
+}
+
+.pos-abs {
+    position: absolute;
+}
+.type-container {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    top: -20px;
+    width:100%;
+}
+
+.type-detail {
+    padding:5px 10px;
+    display: inline-block;
+    background-color: #fff;
+}
+.card-image {
+    vertical-align: top;
+    display:inline-block;
+}
+
+.card .card-title {
+    font-size: 18px;
+    font-weight:500;
+}
+
+.card .card-content .card-title  {
+    line-height:24px;
+}
+
+a {
+    color:#333;
+}
+
+a:hover {
+    color:#01a1dd;
+}
+
+.col {
+    max-width:420px;
+}
+
+.product-image {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.col {
+    max-width:100%;
+}
+
+.description-title {
+    font-weight:600;
+}
+
+.description {
+    padding-right:2em;
+    padding-left:.5em;
+}
+
+.details {
+    padding-right:2em;
+    padding-left:.5em;
+}
+
+.reviews {
+    margin-top: 20px;
+    border-top:5px solid gray;
+    padding-right:2em;
+}
+
+.reviewerName {
+    padding-left:.5em;
+}
+
+.reviewDetail {
+    margin:20px 10px;
+    border-bottom:1px solid #26a69a;
+}
