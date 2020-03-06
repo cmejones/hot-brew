@@ -14,7 +14,7 @@ class DisplayReviews extends React.Component {
     }
         componentDidMount() {
             const id = this.state.productId;
-            axios.get('/api/reviews/' + id)      
+            axios.get('https://api-hot-brew.herokuapp.com/api/reviews/' + id)      
             .then(response => {
                 this.setState({
                     isLoading: false, 

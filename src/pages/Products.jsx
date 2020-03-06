@@ -14,12 +14,15 @@ class Products extends Component {
         }
     }
         componentDidMount() {
-            axios.get('/api/products/')      
+            axios.get('https://api-hot-brew.herokuapp.com/api/products/')      
             .then(response => {
+                if(response.data) {
                 this.setState({
                     isLoading: false, 
                     products: response.data
+                
                 });
+                }
                 console.log('products on productspage', this.state);
             })
         }

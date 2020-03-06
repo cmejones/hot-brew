@@ -18,7 +18,7 @@ class DeleteProduct extends React.Component {
 
         const id = this.props.match.params.id;
         
-        axios.delete('http://localhost:3001/api/products/delete/' + id, {
+        axios.delete('https://api-hot-brew.herokuapp.com/api/products/delete/' + id, {
 
         })
         .then((response) => {
