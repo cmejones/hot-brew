@@ -20,7 +20,7 @@ class EditProduct extends React.Component {
     componentDidMount() {
         console.log('edit here');
         const id = this.props.match.params.id;
-        axios.get('/api/products/' + id)
+        axios.get('https://api-hot-brew.herokuapp.com/api/products/' + id)
         .then( ({data}) => {
             console.log('data', data)
             this.setState( {
