@@ -69,15 +69,21 @@ class EditProduct extends React.Component {
                 price: this.state.price,
                 description: this.state.description
             }
-            axios.put('https://api-hot-brew.herokuapp.com/api/products/update/' + id, {
+            try {
+                await axios.put('https://api-hot-brew.herokuapp.com/api/products/update/' + id, {
                 crossDomain: true,
                 data
-            })
+                })
             .then( (response) => {
                 console.log(response);
             this.setState(data);
 
         })
+            }
+                catch (error) {
+                    console.log(error)
+                }
+
         console.log('sent to db', data);
         };
     
