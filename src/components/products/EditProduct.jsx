@@ -70,6 +70,7 @@ class EditProduct extends React.Component {
                 description: this.state.description
             }
             axios.put('https://api-hot-brew.herokuapp.com/api/products/update/' + id, {
+                crossDomain: true,
                 data
             })
             .then( (response) => {
