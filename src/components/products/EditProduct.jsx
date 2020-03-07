@@ -69,7 +69,7 @@ class EditProduct extends React.Component {
                 price: this.state.price,
                 description: this.state.description
             }
-            axios.put('http://localhost:3001/api/products/update/' + id, {
+            axios.put('https://api-hot-brew.herokuapp.com/api/products/update/' + id, {
                 data
             })
             .then( (response) => {
