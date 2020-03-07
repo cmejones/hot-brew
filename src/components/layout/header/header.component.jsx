@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignedInLinks from './SignedInLinks';
-import SignedOutLinks from './SignedOutLinks';
 import AdminLinks from './AdminLinks';
 import { auth } from '../../../firebase/firebase.utils'
 
@@ -11,28 +9,24 @@ import './header.styles.css';
 
 
 const Header = ({ currentUser }) => (
-    <nav>
-    <div className='header nav-wrapper'>
+    <nav className='header nav-wrapper'>
+
         <Link to='/'>
             <Logo className='logo' />
         </Link>
         <div className=''>
-            <Link className='option' to='/products'>Shop
-                
-            </Link>
-            <SignedInLinks />
-            <SignedOutLinks />
-            <AdminLinks />
+            <Link className='option' to='/products'>Shop</Link>
 
             {
                 currentUser ? 
-                    <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
+                    <a className='option' onClick={() => auth.signOut()}>SIGN OUT</a>
                     :
                     <Link className='option' to='/signin'>SIGN IN</Link>
             }
+            
+            <AdminLinks />
         </div>
 
-    </div>
     </nav>
 )
 

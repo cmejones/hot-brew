@@ -50,8 +50,16 @@ class ProductDetail extends Component {
                     <p className="description"><span className="description-title">ABOUT THIS COFFEE</span><br />
                     {this.state.data.description}</p>
                     <p className="details">{this.state.data.size} | ${this.state.data.price}</p>
-                    <p>Add quantity</p>
-                    <CustomButton type='submit'>Buy Now</CustomButton>
+                    <p>Order Quantity   <input
+                        type='integer'
+                        name='quantity'
+                        defaultValue={this.state.quantity}
+                        onChange={event => this.setState({quantity: event.target.value})}
+                        label='How much do you want?'
+                        required
+                    />
+                    </p>
+                    <CustomButton type='submit'>Add to Cart</CustomButton>
                 </div>
                 <div className="col s12 m6 reviews left-align">
                     <p className="description-title">REVIEWS</p>  

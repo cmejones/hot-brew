@@ -35,3 +35,10 @@ a:link {
 .option {
   padding: 10px 15px;
 }
+
+a:hover {
+  color:#000 !important;
+}
+.admin-links {
+  padding-right:10px;
+}

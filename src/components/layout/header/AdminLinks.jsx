@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const AdminLinks = () => {
     return (
-        <ul className="right">
-            <li><NavLink to='/create-product'>Create Product</NavLink></li>
-            <li><NavLink to='/orders'>All Orders</NavLink></li>
-        </ul>
+        <span className="right">
+            <Link className="admin-links" to='/create-product'>Create Product</Link>
+            <Link className="admin-links" to='/orders'>All Orders</Link>
+        </span>
     )
 }
 
