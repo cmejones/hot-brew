@@ -78,14 +78,17 @@ class EditProduct extends React.Component {
                 console.log(response);
             this.setState(data);
 
-        })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+            catch (error) {
+                console.log(error)
             }
-                catch (error) {
-                    console.log(error)
-                }
 
         console.log('sent to db', data);
-        };
+    };
     
     render() {
         return (
