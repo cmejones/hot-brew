@@ -42,9 +42,16 @@ class CreateProduct extends React.Component {
 
         const data = this.state;
 
-        await createNewProduct(data)
-            
-            this.setState({
+        //update here
+
+        try {
+            await axios.add('https://api-hot-brew.herokuapp.com/api/products/', {
+                crossDomain: true,
+                data
+                })
+            .then( (response) => {
+                console.log(response);
+                this.setState({
                 productName: '',
                 type: '',
                 imageUrl: '',
@@ -54,10 +61,20 @@ class CreateProduct extends React.Component {
                 price: '',
                 description: ''
             });
-        };
-    
+
+        })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+        catch (error) {
+                console.log(error)
+            }
 
 
+    //return newProduct;
+
+};
 
     render() {
        // const { title, description, price, image } = this.state;

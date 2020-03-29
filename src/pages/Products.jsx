@@ -38,9 +38,9 @@ class Products extends Component {
         return (
             this.state.isLoading ? <div>I am loading</div> :
             <div className="dashboard">
-                <div className="filter">
+                {/* <div className="filter">
                     <p>add filter functionality here</p>
-                </div>
+                </div> */}
 
                 <div className="container">
                     <div className="row">

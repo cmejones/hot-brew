@@ -1,3 +1,6 @@
+## Hot Brew
+Hot Brew is a mock eCommerce site based on https://bluebottlecoffe.com. It is built on React.js, Firebase, Express (https://github.com/leah-h/API-Hot-Brew).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import './App.css';
 import Header from './components/layout/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-sign-up';
 import Users from './pages/Users';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import ProductList from './components/products/ProductList';
 import ProductDetail from './components/products/ProductDetail';
 import CreateProduct from './components/products/CreateProduct';
 import Dashboard from './pages/Dashboard';
@@ -41,16 +41,12 @@ class App extends React.Component {
               ...snapShot.data()
             }
           }, () => {
-            //console.log(this.state);
+            console.log(this.state);
             localStorage.setItem("userID", userAuth.uid);
             localStorage.setItem("displayName", userAuth.displayName);
           });
         });
       }
-      //console.log(userAuth);
-
-      //this.setState({ currentUser: userAuth });
-      //console.log('auth', currentUser);
     })
   }
 
@@ -59,6 +55,7 @@ class App extends React.Component {
   }
 
   render() {
+    const isAdmin = this.state.isAdmin;
     return (
       <div className="App">
         <Header currentUser={this.state.currentUser} />
@@ -69,7 +66,11 @@ class App extends React.Component {
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/products' component={Products}  />
           <Route path='/products/:id' component={ProductDetail} />
-          <Route path='/product/edit/:id' component={EditProduct} />
+          <ProtectedRoute 
+            path='/product/edit/:id' 
+            component={EditProduct}
+            isAdmin={isAdmin}
+            />
           <Route path='/product/delete/:id' component={DeleteProduct} />
           <Route path='/create-product' component={CreateProduct} />
         </Switch>
